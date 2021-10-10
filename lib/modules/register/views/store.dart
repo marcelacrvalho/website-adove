@@ -1,0 +1,73 @@
+import 'package:adove/global/utilities/sizes.dart';
+import 'package:adove/global/widgets/avatar/avatar.dart';
+import 'package:adove/global/widgets/button/elevated.dart';
+import 'package:adove/global/widgets/form/form.dart';
+import 'package:adove/global/widgets/menu/menu.dart';
+import 'package:adove/global/widgets/text/text.dart';
+import 'package:adove/modules/register/controllers/register.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class RegisterStoreView extends StatelessWidget {
+  final controller = Get.put<RegisterController>(RegisterController());
+
+  RegisterStoreView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _body(),
+    );
+  }
+
+  Widget _body() {
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const MenuWidget(),
+              const Divider(),
+              Container(
+                alignment: Alignment.center,
+                width: Get.mediaQuery.size.width * 0.3,
+                height: Get.mediaQuery.size.height,
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const ImageAvatarWidget(
+                      path: 'assets/images/avatar-register.jpg',
+                    ),
+                    const Divider(),
+                    const TextWidget(
+                      text: 'Até que enfim',
+                      alignmentDirection: Alignment.center,
+                    ),
+                    const TextWidget(
+                      text: 'Última pergunta',
+                      textSize: kTextSmall,
+                      alignmentDirection: Alignment.center,
+                    ),
+                    const Divider(),
+                    FormFieldWidget(
+                      controller: controller.nameController,
+                      labelText: 'Qual é o nome da sua empresa?',
+                    ),
+                    const Divider(),
+                    ButtonElevatedWidget(
+                      onTapButton: () => controller.registerStore(),
+                      buttonText: 'Acabei',
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
