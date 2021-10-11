@@ -1,4 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/avatar/avatar.dart';
 import 'package:adove/global/widgets/button/elevated.dart';
 import 'package:adove/global/widgets/form/form.dart';
@@ -26,6 +25,7 @@ class ContatoView extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const MenuWidget(),
             const Divider(),
@@ -38,18 +38,18 @@ class ContatoView extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const ImageAvatarWidget(
                           path: 'assets/images/avatar-login.jpg'),
                       const Divider(),
-                      const TextWidget(
-                        text: 'Olá, posso te ajudar?',
-                        alignmentDirection: Alignment.center,
+                      Text(
+                        'Olá, posso te ajudar?',
+                        style: Theme.of(Get.context!).textTheme.headline2,
                       ),
-                      const TextWidget(
-                        text: 'Dúvidas, reclamações, pedidos e sugestões',
-                        textSize: kTextSmall,
-                        alignmentDirection: Alignment.center,
+                      Text(
+                        'Dúvidas, reclamações, pedidos e sugestões',
+                        style: Theme.of(Get.context!).textTheme.headline3,
                       ),
                       const Divider(),
                       FormFieldWidget(

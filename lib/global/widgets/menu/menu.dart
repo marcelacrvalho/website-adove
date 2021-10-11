@@ -1,36 +1,34 @@
 import 'package:adove/global/widgets/button/text.dart';
 import 'package:adove/routes/app_routes.dart';
-import 'package:adove/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuWidget extends StatelessWidget {
-
   const MenuWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Get.mediaQuery.size.width,
-      height: Get.mediaQuery.size.height * 0.2,
+      width: 1.sw,
+      height: 0.12.sh,
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        color: webThemeData.scaffoldBackgroundColor,
-        borderRadius: BorderRadius.circular(40.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.15),
-            offset: const Offset(0, -2),
-            blurRadius: 30.0,
-          ),
-        ]
-      ),
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: BorderRadius.circular(0.4.sw),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.15),
+              offset: const Offset(0, -2),
+              blurRadius: 30.0,
+            ),
+          ]),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButtonWidget(
-              onTapButton: () => Get.toNamed(Routes.kHome),
-              textButton: 'INÍCIO',
+            onTapButton: () => Get.toNamed(Routes.kHome),
+            textButton: 'INÍCIO',
           ),
           TextButtonWidget(
             onTapButton: () => Get.toNamed(Routes.kAbout),

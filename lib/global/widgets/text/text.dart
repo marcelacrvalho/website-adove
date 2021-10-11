@@ -12,7 +12,7 @@ class TextWidget extends StatelessWidget {
     Key? key, 
     required this.text,
     this.alignmentDirection = Alignment.topLeft,
-    this.textSize = 15.0,
+    this.textSize = 15,
     this.fontFamily = 'Myriad',
     this.color = Colors.grey,
     this.isTextAlignCenter = false,

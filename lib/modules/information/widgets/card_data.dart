@@ -1,5 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
-import 'package:adove/global/widgets/text/text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,26 +14,21 @@ class CardDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Get.mediaQuery.size.width * 0.2,
-      height: Get.mediaQuery.size.height * 0.3,
+      width: Get.mediaQuery.size.width * 0.25,
+      height: Get.mediaQuery.size.height * 0.25,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          TextWidget(
-            text: title,
-            textSize: kTitle,
-            isTextAlignCenter: true,
-            alignmentDirection: Alignment.center,
-            fontFamily: 'Made',
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
-          Center(
-            child: TextWidget(
-              text: subtitle,
-              textSize: kText,
-              alignmentDirection: Alignment.center,
-              isTextAlignCenter: true,
-            ),
+          Text(
+            subtitle,
+            style: Theme.of(context).textTheme.headline2,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

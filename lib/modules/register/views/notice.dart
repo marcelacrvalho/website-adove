@@ -1,10 +1,10 @@
 import 'package:adove/global/widgets/button/fab.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
-import 'package:adove/global/widgets/text/text.dart';
 import 'package:adove/modules/register/controllers/register.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoticeView extends StatelessWidget {
   final controller = Get.put<RegisterController>(RegisterController());
@@ -25,25 +25,25 @@ class NoticeView extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const MenuWidget(),
               const Divider(),
-              const TextWidget(
-                text: 'As próximas informações ditarão como seu negócio será '
+              Text(
+                'As próximas informações ditarão como seu negócio será '
                     'apresentado no aplicativo',
-                textSize: 25.0,
-                isTextAlignCenter: true,
-                alignmentDirection: Alignment.center,
+               style: Theme.of(Get.context!).textTheme.headline2,
+               textAlign: TextAlign.center,
               ),
-              const TextWidget(
-                text: 'Preencha-as com cuidado e atenção, como você cuida do '
+              Text(
+                'Preencha-as com cuidado e atenção, como você cuida do '
                     'seu empreendimento',
-                isTextAlignCenter: true,
-                alignmentDirection: Alignment.center,
+               style: Theme.of(Get.context!).textTheme.headline3,
+               textAlign: TextAlign.center,
               ),
               Container(
-                width: Get.mediaQuery.size.width * 0.6,
-                height: Get.mediaQuery.size.height * 0.7,
+                width: 0.6.sw,
+                height: 0.7.sh,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.contain,

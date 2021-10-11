@@ -16,7 +16,7 @@ class TextButtonWidget extends StatelessWidget {
         onPressed: onTapButton,
         child: Text(
           textButton,
-          style: const TextStyle(color: Colors.grey),
+          style: Theme.of(context).textTheme.button,
         ),
     );
   }

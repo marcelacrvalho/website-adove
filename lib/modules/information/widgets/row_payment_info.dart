@@ -1,8 +1,6 @@
-import 'package:adove/global/utilities/sizes.dart';
-import 'package:adove/global/widgets/text/text.dart';
-import 'package:adove/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RowPaymentInformationWidget extends StatelessWidget {
   const RowPaymentInformationWidget({Key? key}) : super(key: key);
@@ -13,7 +11,7 @@ class RowPaymentInformationWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: Get.mediaQuery.size.height * 0.6,
-        color: webThemeData.scaffoldBackgroundColor,
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: Column(
           children: [
             Row(
@@ -21,80 +19,73 @@ class RowPaymentInformationWidget extends StatelessWidget {
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: Get.mediaQuery.size.width * 0.2,
-                      child: const TextWidget(
-                        text: 'E quanto eu tenho que pagar?',
-                        textSize: kTitle,
-                        isTextAlignCenter: true,
-                        alignmentDirection: Alignment.center,
-                        fontFamily: 'Made',
+                      width: 0.2.sw,
+                      child: Text(
+                        'E quanto eu tenho que pagar?',
+                        style: Theme.of(context).textTheme.headline1,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     const Divider(),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: Get.mediaQuery.size.width * 0.2,
-                          child: const TextWidget(
-                            text: 'Apenas',
-                            textSize: kText,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
+                          width: 0.2.sw,
+                          child: Text(
+                            'Apenas',
+                            style: Theme.of(context).textTheme.headline2,
+                            textAlign: TextAlign.center,
                           ),
                         ),
                         Container(
                           color: const Color(0XFFF1948A),
-                          width: Get.mediaQuery.size.width * 0.12,
-                          child: TextWidget(
-                            text: 'R\$ 27, 00',
-                            textSize: kTitle,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
-                            fontFamily: 'Made',
-                            color: webThemeData.scaffoldBackgroundColor,
+                          width: 0.12.sw,
+                          height: 0.07.sh,
+                          child: Center(
+                            child: Text(
+                              'R\$ 27, 00',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Theme.of(context).scaffoldBackgroundColor,
+                                fontSize: Theme.of(context).textTheme.headline1!.fontSize,
+                                fontFamily: Theme.of(context).textTheme.headline1!.fontFamily,
+                              ),
+                            ),
                           ),
                         ),
-                        const TextWidget(
-                          text: 'Mensais',
-                          textSize: kText,
-                          isTextAlignCenter: true,
-                          alignmentDirection: Alignment.center,
+                        Text(
+                          'Mensais',
+                          style: Theme.of(context).textTheme.headline2,
+                          textAlign: TextAlign.center,
                         ),
                         const Divider(),
-                        const TextWidget(
-                          text: 'Sem taxa de adesão',
-                          textSize: kText - 2,
-                          isTextAlignCenter: true,
-                          alignmentDirection: Alignment.center,
+                        Text(
+                          'Sem taxa de adesão',
+                          style: Theme.of(context).textTheme.headline3,
+                          textAlign: TextAlign.center,
                         ),
-                        const TextWidget(
-                          text: 'Sem burocracia',
-                          textSize: kText - 2,
-                          isTextAlignCenter: true,
-                          alignmentDirection: Alignment.center,
+                        Text(
+                          'Sem burocracia',
+                          style: Theme.of(context).textTheme.headline3,
+                          textAlign: TextAlign.center,
                         ),
-                        const TextWidget(
-                          text: 'Cancele quando quiser',
-                          textSize: kText - 2,
-                          isTextAlignCenter: true,
-                          alignmentDirection: Alignment.center,
+                         Text(
+                          'Cancele quando quiser',
+                          style: Theme.of(context).textTheme.headline3,
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
                   ],
                 ),
-                Container(
-                  constraints: BoxConstraints(
-                    maxHeight: Get.mediaQuery.size.height * 0.6,
-                    maxWidth: Get.mediaQuery.size.width * 0.6,
-                    minHeight: Get.mediaQuery.size.height * 0.4,
-                    minWidth: Get.mediaQuery.size.width * 0.4,
-                  ),
-                  width: Get.mediaQuery.size.width * 0.6,
-                  height: Get.mediaQuery.size.height * 0.6,
+                SizedBox(
+                  width: 0.6.sw,
+                  height: 0.6.sh,
                   child: Image.asset('assets/images/bg-info-notice.png'),
                 ),
               ],

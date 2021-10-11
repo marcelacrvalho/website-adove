@@ -1,4 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/avatar/avatar.dart';
 import 'package:adove/global/widgets/button/fab.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
@@ -8,9 +7,10 @@ import 'package:adove/modules/register/widgets/text/autocomplete.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterLocation extends StatelessWidget {
-    final controller = Get.put<RegisterController>(RegisterController());
+  final controller = Get.put<RegisterController>(RegisterController());
 
   RegisterLocation({Key? key}) : super(key: key);
 
@@ -28,32 +28,33 @@ class RegisterLocation extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const MenuWidget(),
               const Divider(),
               Center(
                 child: Container(
                   alignment: Alignment.center,
-                  width: Get.mediaQuery.size.width * 0.3,
-                  height: Get.mediaQuery.size.height,
+                  width: 0.3.sw,
+                  height: 1.sh,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const ImageAvatarWidget(
                             path: 'assets/images/avatar-register.jpg',
                           ),
                           const Divider(),
-                          const TextWidget(
-                            text: 'Essas informações são importantes',
-                            alignmentDirection: Alignment.center,
+                          Text(
+                            'Essas informações são importantes',
+                            style: Theme.of(Get.context!).textTheme.headline2,
                           ),
-                          const TextWidget(
-                            text: 'Preencha-as com cuidado',
-                            textSize: kTextSmall,
-                            alignmentDirection: Alignment.center,
+                          Text(
+                            'Preencha-as com cuidado',
+                            style: Theme.of(Get.context!).textTheme.headline2,
                           ),
                           const Divider(),
                           AutocompleteWidget(
@@ -63,7 +64,8 @@ class RegisterLocation extends StatelessWidget {
                           Align(
                             alignment: Alignment.bottomRight,
                             child: FloatingActionButtonWidget(
-                              onTap: () => Get.toNamed(Routes.kRegisterStoreAddress),
+                              onTap: () =>
+                                  Get.toNamed(Routes.kRegisterStoreAddress),
                             ),
                           ),
                         ],

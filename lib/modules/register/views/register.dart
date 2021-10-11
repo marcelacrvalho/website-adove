@@ -1,13 +1,12 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/avatar/avatar.dart';
 import 'package:adove/global/widgets/button/elevated.dart';
 import 'package:adove/global/widgets/form/form.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
-import 'package:adove/global/widgets/text/text.dart';
 import 'package:adove/modules/register/controllers/register.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterView extends StatelessWidget {
   final controller = Get.put<RegisterController>(RegisterController());
@@ -28,32 +27,32 @@ class RegisterView extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const MenuWidget(),
               const Divider(),
               Center(
                 child: Container(
                   alignment: Alignment.center,
-                  width: Get.mediaQuery.size.width * 0.3,
-                  height: Get.mediaQuery.size.height,
+                  width: 0.3.sw,
+                  height: 1.sh,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const ImageAvatarWidget(
                           path: 'assets/images/avatar-register.jpg',
                         ),
                         const Divider(),
-                        const TextWidget(
-                          text: 'Quem não é visto, não é lembrado',
-                          alignmentDirection: Alignment.center,
+                        Text(
+                          'Quem não é visto, não é lembrado',
+                          style: Theme.of(Get.context!).textTheme.headline2,
                         ),
-                        const TextWidget(
-                          text:
-                              'Permita ser encontrado por milhares de clientes no Brasil',
-                          textSize: kTextSmall,
-                          alignmentDirection: Alignment.center,
+                        Text(
+                          'Permita ser encontrado por milhares de clientes no Brasil',
+                          style: Theme.of(Get.context!).textTheme.headline3,
                         ),
                         const Divider(),
                         FormFieldWidget(
@@ -69,7 +68,7 @@ class RegisterView extends StatelessWidget {
                         const Divider(),
                         ButtonElevatedWidget(
                           onTapButton: () => Get.toNamed(Routes.kNotice),
-                          buttonText: 'pronto',
+                          buttonText: 'Pronto',
                         ),
                       ],
                     ),

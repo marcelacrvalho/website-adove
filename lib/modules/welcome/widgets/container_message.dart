@@ -1,4 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +24,8 @@ class ContainerMessageWidget extends StatelessWidget {
           TypewriterAnimatedText(
             text,
             speed: const Duration(milliseconds: 100),
-            textStyle: const TextStyle(
-              fontSize: kText,
+            textStyle: TextStyle(
+              fontSize: Theme.of(context).textTheme.headline2!.fontSize,
               color: Colors.white,
             ),
           ),

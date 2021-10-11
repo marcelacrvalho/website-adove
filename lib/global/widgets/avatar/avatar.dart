@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageAvatarWidget extends StatelessWidget {
   final String path;
@@ -10,8 +11,8 @@ class ImageAvatarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: Get.mediaQuery.size.width * 0.2,
-        maxHeight: Get.mediaQuery.size.height * 0.2,
+        maxWidth: 0.15.sw,
+        maxHeight: 0.15.sh,
       ),
       decoration: BoxDecoration(
         shape: BoxShape.circle,

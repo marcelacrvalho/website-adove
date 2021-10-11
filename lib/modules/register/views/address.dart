@@ -1,12 +1,11 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/avatar/avatar.dart';
 import 'package:adove/global/widgets/button/fab.dart';
 import 'package:adove/global/widgets/form/form.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
-import 'package:adove/global/widgets/text/text.dart';
 import 'package:adove/modules/register/controllers/register.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterAddress extends StatelessWidget {
   final controller = Get.put<RegisterController>(RegisterController());
@@ -33,24 +32,24 @@ class RegisterAddress extends StatelessWidget {
               const Divider(),
               Container(
                 alignment: Alignment.center,
-                width: Get.mediaQuery.size.width * 0.3,
-                height: Get.mediaQuery.size.height,
+                width: 0.3.sw,
+                height: 1.sh,
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
                     const Divider(),
-                    const TextWidget(
-                      text: 'Já está quase acabando',
-                      alignmentDirection: Alignment.center,
+                    Text(
+                      'Já está quase acabando',
+                      style: Theme.of(Get.context!).textTheme.headline2,
                     ),
-                    const TextWidget(
-                      text: 'Aguente firme. Só mais algumas perguntas',
-                      textSize: kTextSmall,
-                      alignmentDirection: Alignment.center,
+                    Text(
+                      'Aguente firme. Só mais algumas perguntas',
+                      style: Theme.of(Get.context!).textTheme.headline2,
                     ),
                     const Divider(),
                     FormFieldWidget(

@@ -2,6 +2,7 @@ import 'package:adove/modules/welcome/controllers/welcome.dart';
 import 'package:adove/modules/welcome/widgets/container_message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeView extends StatelessWidget {
   final controller = Get.put<WelcomeController>(WelcomeController());
@@ -21,7 +22,8 @@ class WelcomeView extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: SizedBox(
-            width: Get.mediaQuery.size.width * 0.5,
+            width: 0.5.sw,
+            height: 1.sh,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +36,7 @@ class WelcomeView extends StatelessWidget {
                   ),
                   child: Icon(
                     Icons.person,
-                    size: Get.mediaQuery.size.height * 0.04,
+                    size: 0.04.sh,
                     color: Colors.white,
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:adove/global/widgets/text/text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RowAppInformationWidget extends StatelessWidget {
   const RowAppInformationWidget({Key? key}) : super(key: key);
@@ -10,14 +11,15 @@ class RowAppInformationWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-        height: Get.mediaQuery.size.height * 0.6,
+        height: 0.6.sh,
+        width: 1.0.sw,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _iconText(
               Icon(
                 Icons.visibility,
-                size: Get.mediaQuery.size.width * 0.03,
+                size: 0.03.sw,
                 color: Colors.grey,
               ),
               'Mais visibilidade ao seu negócio',
@@ -25,7 +27,7 @@ class RowAppInformationWidget extends StatelessWidget {
             _iconText(
               Icon(
                 Icons.event,
-                size: Get.mediaQuery.size.width * 0.03,
+                size: 0.03.sw,
                 color: Colors.grey,
               ),
               'Agendamento rápido e fácil ',
@@ -33,7 +35,7 @@ class RowAppInformationWidget extends StatelessWidget {
             _iconText(
               Icon(
                 Icons.article,
-                size: Get.mediaQuery.size.width * 0.03,
+                size: 0.03.sw,
                 color: Colors.grey,
               ),
               'Novidades em tempo real',
@@ -47,16 +49,15 @@ class RowAppInformationWidget extends StatelessWidget {
   Widget _iconText(Icon icon, String text) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         icon,
         SizedBox(
-          width: Get.mediaQuery.size.width * 0.2,
-          child: TextWidget(
-            text: text,
-            textSize: 30.0,
-            fontFamily: 'Made',
-            isTextAlignCenter: true,
-            alignmentDirection: Alignment.center,
+          width: 0.2.sw,
+          child: Text(
+            text,
+            style: Theme.of(Get.context!).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
         ),
       ],

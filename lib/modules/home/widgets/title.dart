@@ -1,4 +1,3 @@
-import 'package:adove/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class TitleWidgetHome extends StatelessWidget {
@@ -18,7 +17,7 @@ class TitleWidgetHome extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: webThemeData.scaffoldBackgroundColor,
+            color: Theme.of(context).scaffoldBackgroundColor,
             fontSize: 100.0,
             fontFamily: 'Made'
           ),

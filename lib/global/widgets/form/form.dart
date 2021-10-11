@@ -1,5 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
-import 'package:adove/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class FormFieldWidget extends StatelessWidget {
@@ -23,14 +21,11 @@ class FormFieldWidget extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         maxLines: maxLines ? 2 : 1,
-        style: TextStyle(color: webThemeData.primaryColor, fontSize: kText),
+        style: Theme.of(context).textTheme.subtitle1,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(8.0),
           labelText: labelText,
-          labelStyle: const TextStyle(
-            color: Colors.grey,
-            fontSize: kTextSmall,
-          ),
+          labelStyle: Theme.of(context).textTheme.headline3,
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(6.0),

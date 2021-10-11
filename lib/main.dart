@@ -2,19 +2,45 @@ import 'package:adove/modules/home/bindings/home.dart';
 import 'package:adove/routes/app_pages.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'theme/theme.dart';
 
 void main() {
   runApp(
-    GetMaterialApp(
-      title: 'Adove',
-      debugShowCheckedModeBanner: false,
-      theme: webThemeData,
-      initialRoute: Routes.kHome,
-      getPages: WebPages.routes,
-      initialBinding: HomeBinding(),
-      defaultTransition: Transition.rightToLeftWithFade,
+    ScreenUtilInit(
+      designSize: const Size(1400, 600),
+      builder: () => GetMaterialApp(
+        title: 'Adove',
+        debugShowCheckedModeBanner: false,
+        initialRoute: Routes.kHome,
+        getPages: WebPages.routes,
+        initialBinding: HomeBinding(),
+        defaultTransition: Transition.rightToLeftWithFade,
+        theme: ThemeData(
+          primaryColor: Colors.blue,
+          primaryColorDark: const Color(0XFF81156A),
+          primaryColorLight: const Color(0XFFDAF7A6),
+          scaffoldBackgroundColor: Colors.white,
+          dividerColor: Colors.transparent,
+          fontFamily: 'Myriad',
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: TextTheme(
+            headline1: TextStyle(
+                fontSize: 30.sp, fontFamily: 'Made', color: Colors.grey),
+            headline2: TextStyle(fontSize: 18.sp, color: Colors.grey),
+            headline3: TextStyle(fontSize: 15.sp, color: Colors.grey),
+            subtitle1: TextStyle(fontSize: 15.sp, color: Colors.blue),
+
+            button: TextStyle(fontSize: 15.sp, color: Colors.grey),
+          ),
+          buttonTheme: ButtonThemeData(
+            minWidth: 80.w,
+            height: 30.h,
+            padding: const EdgeInsets.all(8.0),
+            buttonColor: Colors.blue,
+          ),
+        ),
+      ),
     ),
   );
 }
