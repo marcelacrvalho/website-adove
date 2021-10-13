@@ -51,7 +51,10 @@ class RegisterAddress extends StatelessWidget {
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
-                    const Divider(),
+                    Visibility(
+                      visible: !HomeController.to.isMobile,
+                      child: const Divider(),
+                    ),
                     TextWidget(
                       text: 'Já está quase acabando',
                       textSize: HomeController.to.isMobile

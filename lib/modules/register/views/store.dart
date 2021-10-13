@@ -47,23 +47,25 @@ class RegisterStoreView extends StatelessWidget {
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
-                    const Divider(),
+                    Visibility(
+                      visible: !HomeController.to.isMobile,
+                      child: const Divider(),
+                    ),
                     TextWidget(
                       text: 'Até que enfim',
                       textSize: HomeController.to.isMobile
-                            ? Sizes.body1Mobile
-                            : Sizes.body1Site,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
-               
+                          ? Sizes.body1Mobile
+                          : Sizes.body1Site,
+                      isTextAlignCenter: true,
+                      alignmentDirection: Alignment.center,
                     ),
                     TextWidget(
                       text: 'Última pergunta',
                       textSize: HomeController.to.isMobile
-                            ? Sizes.body2Mobile
-                            : Sizes.body2Site,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
+                          ? Sizes.body2Mobile
+                          : Sizes.body2Site,
+                      isTextAlignCenter: true,
+                      alignmentDirection: Alignment.center,
                     ),
                     const Divider(),
                     FormFieldWidget(

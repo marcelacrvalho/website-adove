@@ -32,36 +32,39 @@ class RegisterInfo extends StatelessWidget {
               const MenuWidget(),
               const Divider(),
               Container(
-                 width: HomeController.to.isMobile
+                width: HomeController.to.isMobile
                     ? Get.mediaQuery.size.width
                     : Get.mediaQuery.size.width * 0.3,
                 height: Get.mediaQuery.size.height,
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                 mainAxisAlignment: HomeController.to.isMobile
-                    ? MainAxisAlignment.start
-                    : MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: HomeController.to.isMobile
+                      ? MainAxisAlignment.start
+                      : MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
-                    const Divider(),
+                    Visibility(
+                      visible: !HomeController.to.isMobile,
+                      child: const Divider(),
+                    ),
                     TextWidget(
                       text: 'Está acabando',
-                     textSize: HomeController.to.isMobile
-                            ? Sizes.body1Mobile
-                            : Sizes.body1Site,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
+                      textSize: HomeController.to.isMobile
+                          ? Sizes.body1Mobile
+                          : Sizes.body1Site,
+                      isTextAlignCenter: true,
+                      alignmentDirection: Alignment.center,
                     ),
                     TextWidget(
                       text: 'Aguente firme. Só mais algumas perguntas',
                       textSize: HomeController.to.isMobile
-                            ? Sizes.body2Mobile
-                            : Sizes.body2Site,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
+                          ? Sizes.body2Mobile
+                          : Sizes.body2Site,
+                      isTextAlignCenter: true,
+                      alignmentDirection: Alignment.center,
                     ),
                     const Divider(),
                     Align(
@@ -140,8 +143,8 @@ class RegisterInfo extends StatelessWidget {
               child: TextWidget(
                 text: item,
                 textSize: HomeController.to.isMobile
-                            ? Sizes.body1Mobile
-                            : Sizes.body1Site,
+                    ? Sizes.body1Mobile
+                    : Sizes.body1Site,
                 color: Colors.blue,
               ),
               value: item,
@@ -164,8 +167,8 @@ class RegisterInfo extends StatelessWidget {
               child: TextWidget(
                 text: item,
                 textSize: HomeController.to.isMobile
-                            ? Sizes.body1Mobile
-                            : Sizes.body1Site,
+                    ? Sizes.body1Mobile
+                    : Sizes.body1Site,
                 color: Colors.blue,
               ),
               value: item,
@@ -188,8 +191,8 @@ class RegisterInfo extends StatelessWidget {
               child: TextWidget(
                 text: item,
                 textSize: HomeController.to.isMobile
-                            ? Sizes.body1Mobile
-                            : Sizes.body1Site,
+                    ? Sizes.body1Mobile
+                    : Sizes.body1Site,
                 color: Colors.blue,
               ),
               value: item,
@@ -212,8 +215,8 @@ class RegisterInfo extends StatelessWidget {
               child: TextWidget(
                 text: item,
                 textSize: HomeController.to.isMobile
-                            ? Sizes.body1Mobile
-                            : Sizes.body1Site,
+                    ? Sizes.body1Mobile
+                    : Sizes.body1Site,
                 color: Colors.blue,
               ),
               value: item,

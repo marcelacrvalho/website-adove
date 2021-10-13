@@ -55,7 +55,10 @@ class RegisterLocation extends StatelessWidget {
                           const ImageAvatarWidget(
                             path: 'assets/images/avatar-register.jpg',
                           ),
-                          const Divider(),
+                          Visibility(
+                            visible: !HomeController.to.isMobile,
+                            child: const Divider(),
+                          ),
                           TextWidget(
                             text: 'Essas informações são importantes',
                             textSize: HomeController.to.isMobile

@@ -45,13 +45,17 @@ class RegisterView extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                   mainAxisAlignment: HomeController.to.isMobile
-                    ? MainAxisAlignment.start
-                    : MainAxisAlignment.center,
+                    mainAxisAlignment: HomeController.to.isMobile
+                        ? MainAxisAlignment.start
+                        : MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const ImageAvatarWidget(
                         path: 'assets/images/avatar-register.jpg',
+                      ),
+                      Visibility(
+                        visible: !HomeController.to.isMobile,
+                        child: const Divider(),
                       ),
                       TextWidget(
                         text: 'Quem não é visto, não é lembrado',
