@@ -19,7 +19,7 @@ class ButtonElevatedWidget extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         primary: Colors.blue,
         padding: const EdgeInsets.all(8.0),
-        fixedSize: Get.mediaQuery.size * 0.09,
+        fixedSize: Size(Get.mediaQuery.size.width, Get.mediaQuery.size.height * 0.07),
       ),
       child: AutoSizeText(
         buttonText.toUpperCase(),
