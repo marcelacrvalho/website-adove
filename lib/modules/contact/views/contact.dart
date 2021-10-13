@@ -4,6 +4,7 @@ import 'package:adove/global/widgets/form/form.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
 import 'package:adove/global/widgets/text/text.dart';
 import 'package:adove/modules/contact/controllers/contact.dart';
+import 'package:adove/modules/home/controllers/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,9 @@ class ContatoView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: HomeController.to.isMobile
+              ? MainAxisAlignment.start
+              : MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const MenuWidget(),
@@ -43,13 +46,12 @@ class ContatoView extends StatelessWidget {
                       const ImageAvatarWidget(
                           path: 'assets/images/avatar-login.jpg'),
                       const Divider(),
-                      Text(
-                        'Olá, posso te ajudar?',
-                        style: Theme.of(Get.context!).textTheme.headline2,
+                      const TextWidget(
+                        text: 'Olá, posso te ajudar?',
+                        textSize: 15.0,
                       ),
-                      Text(
-                        'Dúvidas, reclamações, pedidos e sugestões',
-                        style: Theme.of(Get.context!).textTheme.headline3,
+                      const TextWidget(
+                        text: 'Dúvidas, reclamações, pedidos e sugestões',
                       ),
                       const Divider(),
                       FormFieldWidget(

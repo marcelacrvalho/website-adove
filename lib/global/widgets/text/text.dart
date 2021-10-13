@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class TextWidget extends StatelessWidget {
@@ -9,10 +10,10 @@ class TextWidget extends StatelessWidget {
   final bool isTextAlignCenter;
 
   const TextWidget({
-    Key? key, 
+    Key? key,
     required this.text,
+    this.textSize = 12.0,
     this.alignmentDirection = Alignment.topLeft,
-    this.textSize = 15,
     this.fontFamily = 'Myriad',
     this.color = Colors.grey,
     this.isTextAlignCenter = false,

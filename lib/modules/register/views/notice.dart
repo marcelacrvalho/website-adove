@@ -1,16 +1,18 @@
+import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/button/fab.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
+import 'package:adove/global/widgets/text/text.dart';
+import 'package:adove/modules/home/controllers/home.dart';
 import 'package:adove/modules/register/controllers/register.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoticeView extends StatelessWidget {
   final controller = Get.put<RegisterController>(RegisterController());
 
   NoticeView({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,30 +22,37 @@ class NoticeView extends StatelessWidget {
 
   Widget _body() {
     return SafeArea(
+      bottom: false,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: HomeController.to.isMobile
+                ? MainAxisAlignment.start
+                : MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const MenuWidget(),
               const Divider(),
-              Text(
-                'As próximas informações ditarão como seu negócio será '
+              TextWidget(
+                text: 'As próximas informações ditarão como seu negócio será '
                     'apresentado no aplicativo',
-               style: Theme.of(Get.context!).textTheme.headline2,
-               textAlign: TextAlign.center,
+                textSize:
+                    HomeController.to.isMobile ? Sizes.body1Mobile : Sizes.body1Site,
+                isTextAlignCenter: true,
+                alignmentDirection: Alignment.center,
               ),
-              Text(
-                'Preencha-as com cuidado e atenção, como você cuida do '
+              TextWidget(
+                text: 'Preencha-as com cuidado e atenção, como você cuida do '
                     'seu empreendimento',
-               style: Theme.of(Get.context!).textTheme.headline3,
-               textAlign: TextAlign.center,
+                textSize:
+                    HomeController.to.isMobile ? Sizes.body2Mobile : Sizes.body2Site,
+                isTextAlignCenter: true,
+                alignmentDirection: Alignment.center,
               ),
               Container(
-                width: 0.6.sw,
-                height: 0.7.sh,
+                width: Get.mediaQuery.size.width * 0.6,
+                height: Get.mediaQuery.size.height * 0.7,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.contain,

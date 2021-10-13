@@ -1,6 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonElevatedWidget extends StatelessWidget {
   final void Function()? onTapButton;
@@ -14,24 +14,21 @@ class ButtonElevatedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 0.08.sw,
-      height: 0.08.sh,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+    return ElevatedButton(
+      onPressed: onTapButton,
+      style: ElevatedButton.styleFrom(
+        primary: Colors.blue,
+        padding: const EdgeInsets.all(8.0),
+        fixedSize: Get.mediaQuery.size * 0.09,
       ),
-      child: ElevatedButton(
-        onPressed: onTapButton,
-        style: ElevatedButton.styleFrom(
-          primary: Colors.blue,
-          padding: const EdgeInsets.all(4.0),
-        ),
-        child: Text(
-          buttonText.toUpperCase(),
-          style: TextStyle(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            fontSize: Theme.of(context).textTheme.headline3!.fontSize,
-          )
+      child: AutoSizeText(
+        buttonText.toUpperCase(),
+        maxLines: 1,
+        minFontSize: 5.0,
+        stepGranularity: 1,
+        style: TextStyle(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          fontSize: 12.0,
         ),
       ),
     );

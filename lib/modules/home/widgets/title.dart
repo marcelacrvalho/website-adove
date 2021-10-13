@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TitleWidgetHome extends StatelessWidget {
   final String title;
@@ -10,19 +12,19 @@ class TitleWidgetHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            fontSize: 100.0,
-            fontFamily: 'Made'
-          ),
+    return Center(
+      child: AutoSizeText(
+        title,
+        textAlign: TextAlign.center,
+        minFontSize: 10.0,
+        stepGranularity: 1,
+        maxFontSize: 100.0,
+        style: TextStyle(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          fontSize: 80.0,
+          fontFamily: 'Made'
         ),
-      ],
+      ),
     );
   }
 }

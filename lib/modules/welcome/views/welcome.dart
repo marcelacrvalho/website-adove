@@ -1,8 +1,9 @@
+import 'package:adove/global/utilities/sizes.dart';
+import 'package:adove/modules/home/controllers/home.dart';
 import 'package:adove/modules/welcome/controllers/welcome.dart';
 import 'package:adove/modules/welcome/widgets/container_message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeView extends StatelessWidget {
   final controller = Get.put<WelcomeController>(WelcomeController());
@@ -18,15 +19,18 @@ class WelcomeView extends StatelessWidget {
 
   Widget _body() {
     return SafeArea(
+      bottom: false,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: SizedBox(
-            width: 0.5.sw,
-            height: 1.sh,
+            width: Get.mediaQuery.size.width * 0.5,
+            height: Get.mediaQuery.size.height,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: HomeController.to.isMobile
+               ? MainAxisAlignment.start
+               : MainAxisAlignment.center,
               children: [
                 Container(
                   padding: const EdgeInsets.all(8.0),
@@ -36,7 +40,9 @@ class WelcomeView extends StatelessWidget {
                   ),
                   child: Icon(
                     Icons.person,
-                    size: 0.04.sh,
+                    size: HomeController.to.isMobile 
+                    ? Get.mediaQuery.size.width * 0.15
+                    : Get.mediaQuery.size.width * 0.04,
                     color: Colors.white,
                   ),
                 ),

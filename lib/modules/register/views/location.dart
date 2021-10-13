@@ -1,13 +1,14 @@
+import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/avatar/avatar.dart';
 import 'package:adove/global/widgets/button/fab.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
 import 'package:adove/global/widgets/text/text.dart';
+import 'package:adove/modules/home/controllers/home.dart';
 import 'package:adove/modules/register/controllers/register.dart';
 import 'package:adove/modules/register/widgets/text/autocomplete.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterLocation extends StatelessWidget {
   final controller = Get.put<RegisterController>(RegisterController());
@@ -23,11 +24,14 @@ class RegisterLocation extends StatelessWidget {
 
   Widget _body() {
     return SafeArea(
+      bottom: false,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: HomeController.to.isMobile
+                ? MainAxisAlignment.start
+                : MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const MenuWidget(),
@@ -35,26 +39,38 @@ class RegisterLocation extends StatelessWidget {
               Center(
                 child: Container(
                   alignment: Alignment.center,
-                  width: 0.3.sw,
-                  height: 1.sh,
+                  width: HomeController.to.isMobile
+                      ? Get.mediaQuery.size.width
+                      : Get.mediaQuery.size.width * 0.3,
+                  height: Get.mediaQuery.size.height,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SingleChildScrollView(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: HomeController.to.isMobile
+                            ? MainAxisAlignment.start
+                            : MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const ImageAvatarWidget(
                             path: 'assets/images/avatar-register.jpg',
                           ),
                           const Divider(),
-                          Text(
-                            'Essas informações são importantes',
-                            style: Theme.of(Get.context!).textTheme.headline2,
+                          TextWidget(
+                            text: 'Essas informações são importantes',
+                            textSize: HomeController.to.isMobile
+                                ? Sizes.body1Mobile
+                                : Sizes.body1Site,
+                            isTextAlignCenter: true,
+                            alignmentDirection: Alignment.center,
                           ),
-                          Text(
-                            'Preencha-as com cuidado',
-                            style: Theme.of(Get.context!).textTheme.headline2,
+                          TextWidget(
+                            text: 'Preencha-as com cuidado',
+                            textSize: HomeController.to.isMobile
+                                ? Sizes.body2Mobile
+                                : Sizes.body2Site,
+                            isTextAlignCenter: true,
+                            alignmentDirection: Alignment.center,
                           ),
                           const Divider(),
                           AutocompleteWidget(

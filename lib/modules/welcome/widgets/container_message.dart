@@ -1,3 +1,4 @@
+import 'package:adove/global/utilities/sizes.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class ContainerMessageWidget extends StatelessWidget {
             text,
             speed: const Duration(milliseconds: 100),
             textStyle: TextStyle(
-              fontSize: Theme.of(context).textTheme.headline2!.fontSize,
+              fontSize: Sizes.isMobile() ? Sizes.body2Mobile : Sizes.body2Site,
               color: Colors.white,
             ),
           ),

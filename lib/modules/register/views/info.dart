@@ -1,11 +1,12 @@
+import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/global/widgets/avatar/avatar.dart';
 import 'package:adove/global/widgets/button/fab.dart';
 import 'package:adove/global/widgets/menu/menu.dart';
 import 'package:adove/global/widgets/text/text.dart';
+import 'package:adove/modules/home/controllers/home.dart';
 import 'package:adove/modules/register/controllers/register.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterInfo extends StatelessWidget {
   const RegisterInfo({Key? key}) : super(key: key);
@@ -19,42 +20,57 @@ class RegisterInfo extends StatelessWidget {
 
   Widget _body() {
     return SafeArea(
+      bottom: false,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: HomeController.to.isMobile
+                ? MainAxisAlignment.start
+                : MainAxisAlignment.center,
             children: [
               const MenuWidget(),
               const Divider(),
               Container(
-                alignment: Alignment.center,
-                width: 0.3.sw,
-                height: 1.0.sh,
+                 width: HomeController.to.isMobile
+                    ? Get.mediaQuery.size.width
+                    : Get.mediaQuery.size.width * 0.3,
+                height: Get.mediaQuery.size.height,
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                 mainAxisAlignment: HomeController.to.isMobile
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
                     const Divider(),
-                    const TextWidget(
+                    TextWidget(
                       text: 'Está acabando',
-                      alignmentDirection: Alignment.center,
+                     textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
+                            isTextAlignCenter: true,
+                            alignmentDirection: Alignment.center,
                     ),
-                    Text(
-                      'Aguente firme. Só mais algumas perguntas',
-                      style: Theme.of(Get.context!).textTheme.headline3,
-                      textAlign: TextAlign.center,
+                    TextWidget(
+                      text: 'Aguente firme. Só mais algumas perguntas',
+                      textSize: HomeController.to.isMobile
+                            ? Sizes.body2Mobile
+                            : Sizes.body2Site,
+                            isTextAlignCenter: true,
+                            alignmentDirection: Alignment.center,
                     ),
                     const Divider(),
                     Align(
                       alignment: Alignment.topLeft,
-                      child: Text(
-                        'Como você classificaria o seu negócio?',
-                        style: Theme.of(Get.context!).textTheme.headline3,
-                        textAlign: TextAlign.left,
+                      child: TextWidget(
+                        text: 'Como você classificaria o seu negócio?',
+                        textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
                       ),
                     ),
                     const Divider(),
@@ -62,9 +78,12 @@ class RegisterInfo extends StatelessWidget {
                     const Divider(),
                     Align(
                       alignment: Alignment.topLeft,
-                      child: Text(
-                        'Na sua empresa, existe a opção de atender o cliente na casa dele?',
-                        style: Theme.of(Get.context!).textTheme.headline3,
+                      child: TextWidget(
+                        text:
+                            'Na sua empresa, existe a opção de atender o cliente na casa dele?',
+                        textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
                       ),
                     ),
                     const Divider(),
@@ -72,9 +91,11 @@ class RegisterInfo extends StatelessWidget {
                     const Divider(),
                     Align(
                       alignment: Alignment.topLeft,
-                      child: Text(
-                        'Quais os dias de atendimento?',
-                        style: Theme.of(Get.context!).textTheme.headline3,
+                      child: TextWidget(
+                        text: 'Quais os dias de atendimento?',
+                        textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
                       ),
                     ),
                     const Divider(),
@@ -82,9 +103,11 @@ class RegisterInfo extends StatelessWidget {
                     const Divider(),
                     Align(
                       alignment: Alignment.topLeft,
-                      child: Text(
-                        'Quais meios de pagamento você aceita?',
-                        style: Theme.of(Get.context!).textTheme.headline3,
+                      child: TextWidget(
+                        text: 'Quais meios de pagamento você aceita?',
+                        textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
                       ),
                     ),
                     const Divider(),
@@ -114,9 +137,12 @@ class RegisterInfo extends StatelessWidget {
           isExpanded: true,
           items: RegisterController.to.categoryItems.map((String item) {
             return DropdownMenuItem<String>(
-              child: Text(
-                item,
-                style: Theme.of(Get.context!).textTheme.subtitle1
+              child: TextWidget(
+                text: item,
+                textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
+                color: Colors.blue,
               ),
               value: item,
             );
@@ -135,9 +161,12 @@ class RegisterInfo extends StatelessWidget {
           isExpanded: true,
           items: RegisterController.to.homecare.map((String item) {
             return DropdownMenuItem<String>(
-              child: Text(
-                item,
-                style: Theme.of(Get.context!).textTheme.subtitle1,
+              child: TextWidget(
+                text: item,
+                textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
+                color: Colors.blue,
               ),
               value: item,
             );
@@ -156,9 +185,12 @@ class RegisterInfo extends StatelessWidget {
           isExpanded: true,
           items: RegisterController.to.open.map((String item) {
             return DropdownMenuItem<String>(
-              child: Text(
-                item,
-                style: Theme.of(Get.context!).textTheme.subtitle1,
+              child: TextWidget(
+                text: item,
+                textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
+                color: Colors.blue,
               ),
               value: item,
             );
@@ -177,9 +209,12 @@ class RegisterInfo extends StatelessWidget {
           isExpanded: true,
           items: RegisterController.to.payment.map((String item) {
             return DropdownMenuItem<String>(
-              child: Text(
-                item,
-                style: Theme.of(Get.context!).textTheme.subtitle1,
+              child: TextWidget(
+                text: item,
+                textSize: HomeController.to.isMobile
+                            ? Sizes.body1Mobile
+                            : Sizes.body1Site,
+                color: Colors.blue,
               ),
               value: item,
             );

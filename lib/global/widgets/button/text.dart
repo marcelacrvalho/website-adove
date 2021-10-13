@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class TextButtonWidget extends StatelessWidget {
@@ -5,19 +6,25 @@ class TextButtonWidget extends StatelessWidget {
   final String textButton;
 
   const TextButtonWidget({
-    Key? key, 
+    Key? key,
     required this.onTapButton,
     required this.textButton,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: onTapButton,
-        child: Text(
-          textButton,
-          style: Theme.of(context).textTheme.button,
+      onPressed: onTapButton,
+      child: AutoSizeText(
+        textButton,
+        maxLines: 1,
+        minFontSize: 5.0,
+        stepGranularity: 1,
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 15.0,
         ),
+      ),
     );
   }
 }

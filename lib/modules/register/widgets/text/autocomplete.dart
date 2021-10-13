@@ -1,4 +1,6 @@
 import 'package:adove/global/utilities/cities.dart';
+import 'package:adove/global/utilities/sizes.dart';
+import 'package:adove/global/widgets/text/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
@@ -15,19 +17,19 @@ class AutocompleteWidget extends StatelessWidget {
         controller: controllerCity,
         keyboardType: TextInputType.text,
         style: TextStyle(
-          fontSize: Theme.of(context).textTheme.headline2!.fontSize!,
+          fontSize: Sizes.isMobile() ? Sizes.body1Mobile : Sizes.body1Site,
           color: Colors.blue,
         ),
         decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(7.0)),
           labelStyle: TextStyle(
-            fontSize: Theme.of(context).textTheme.headline3!.fontSize!,
+            fontSize: Sizes.isMobile() ? Sizes.body1Mobile : Sizes.body1Site,
             color: Colors.blue,
           ),
-          hintText: 'Exemplo: Belo Horizonte, Minas Gerais',
+          hintText: 'Onde se localiza seu negócio?',
           hintStyle: TextStyle(
             color: Colors.grey,
-            fontSize: Theme.of(context).textTheme.headline3!.fontSize!,
+            fontSize: Sizes.isMobile() ? Sizes.body2Mobile : Sizes.body2Site,
           ),
         ),
       ),
@@ -36,7 +38,10 @@ class AutocompleteWidget extends StatelessWidget {
       },
       itemBuilder: (context, suggestions) {
         return ListTile(
-          title: Text(suggestions),
+          title: TextWidget(
+            text: suggestions,
+            textSize: Sizes.isMobile() ? Sizes.body2Mobile : Sizes.body2Site,
+          ),
         );
       },
       suggestionsCallback: (String city) => Cities.getSuggestions(city),

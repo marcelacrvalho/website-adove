@@ -1,31 +1,39 @@
+import 'package:adove/global/utilities/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FloatingActionButtonWidget extends StatelessWidget {
-  final IconData ? icon;
+  final IconData? icon;
   final void Function()? onTap;
 
   const FloatingActionButtonWidget({
-    Key? key, 
+    Key? key,
     required this.onTap,
     this.icon = Icons.arrow_right_alt_rounded,
-}) : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 0.05.sw,
-      height: 0.07.sh,
+      width: Sizes.isMobile()
+          ? Get.mediaQuery.size.width * 0.12
+          : Get.mediaQuery.size.width * 0.04,
+      height: Sizes.isMobile()
+          ? Get.mediaQuery.size.height * 0.1
+          : Get.mediaQuery.size.height * 0.06,
       child: FloatingActionButton.extended(
         onPressed: onTap,
         backgroundColor: Theme.of(context).primaryColor,
         label: Padding(
           padding: const EdgeInsets.all(4.0),
-          child: Icon(
-            icon,
-            size: 0.022.sw,
-            color: Theme.of(context).scaffoldBackgroundColor,
+          child: FittedBox(
+            child: Icon(
+              icon,
+              size: Sizes.isMobile()
+                  ? Get.mediaQuery.size.width * 0.06
+                  : Get.mediaQuery.size.width * 0.02,
+              color: Theme.of(context).scaffoldBackgroundColor,
+            ),
           ),
         ),
       ),
