@@ -1,7 +1,6 @@
 import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/modules/home/controllers/home.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CardDataWidget extends StatelessWidget {
   final String title;

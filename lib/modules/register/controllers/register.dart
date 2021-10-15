@@ -101,7 +101,7 @@ class RegisterController extends GetxController {
       await _client.mutate(options);
       _lauchLink();
     } catch (e) {
-      print(e);
+      
     }
   }
 

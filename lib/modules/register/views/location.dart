@@ -36,46 +36,41 @@ class RegisterLocation extends StatelessWidget {
             children: [
               const MenuWidget(),
               const Divider(),
-              Center(
-                child: Container(
-                  alignment: Alignment.center,
-                  width: HomeController.to.isMobile
-                      ? Get.mediaQuery.size.width
-                      : Get.mediaQuery.size.width * 0.3,
-                  height: Get.mediaQuery.size.height,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: HomeController.to.isMobile
-                            ? MainAxisAlignment.start
-                            : MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const ImageAvatarWidget(
-                            path: 'assets/images/avatar-register.jpg',
-                          ),
-                          Visibility(
-                            visible: !HomeController.to.isMobile,
-                            child: const Divider(),
-                          ),
-                          TextWidget(
-                            text: 'Essas informações são importantes',
-                            textSize: HomeController.to.isMobile
-                                ? Sizes.body1Mobile
-                                : Sizes.body1Site,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
-                          ),
-                          TextWidget(
-                            text: 'Preencha-as com cuidado',
-                            textSize: HomeController.to.isMobile
-                                ? Sizes.body2Mobile
-                                : Sizes.body2Site,
-                            isTextAlignCenter: true,
-                            alignmentDirection: Alignment.center,
-                          ),
-                          const Divider(),
+              SizedBox(
+                width: HomeController.to.isMobile
+                    ? Get.mediaQuery.size.width
+                    : Get.mediaQuery.size.width * 0.3,
+                height: Get.mediaQuery.size.height,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: HomeController.to.isMobile
+                          ? MainAxisAlignment.start
+                          : MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const ImageAvatarWidget(
+                          path: 'assets/images/avatar-register.jpg',
+                        ),
+                        const Divider(),
+                        TextWidget(
+                          text: 'Essas informações são importantes',
+                          textSize: HomeController.to.isMobile
+                              ? Sizes.body1Mobile
+                              : Sizes.body1Site,
+                          isTextAlignCenter: true,
+                          alignmentDirection: Alignment.center,
+                        ),
+                        TextWidget(
+                          text: 'Preencha-as com cuidado',
+                          textSize: HomeController.to.isMobile
+                              ? Sizes.body2Mobile
+                              : Sizes.body2Site,
+                          isTextAlignCenter: true,
+                          alignmentDirection: Alignment.center,
+                        ),
+                        const Divider(),
                           AutocompleteWidget(
                             controllerCity: controller.locationController,
                           ),
@@ -83,8 +78,8 @@ class RegisterLocation extends StatelessWidget {
                           Align(
                             alignment: Alignment.bottomRight,
                             child: FloatingActionButtonWidget(
-                              onTap: () =>
-                                  Get.toNamed(Routes.kRegisterStoreAddress),
+                              onTap: () => Get.toNamed(Routes.kRegisterStoreAddress),
+                              
                             ),
                           ),
                         ],
@@ -92,7 +87,6 @@ class RegisterLocation extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

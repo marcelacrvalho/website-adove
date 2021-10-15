@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   dropdown_search: ^1.0.3
-  flutter_typeahead: ^3.1.2
+  searchfield: ^0.5.6
   url_launcher: ^6.0.10
   animated_text_kit: ^4.2.1
   auto_size_text: ^3.0.0-nullsafety.0

@@ -52,7 +52,7 @@ class NoticeView extends StatelessWidget {
               ),
               Container(
                 width: Get.mediaQuery.size.width * 0.6,
-                height: Get.mediaQuery.size.height * 0.7,
+                height: Get.mediaQuery.size.height * 0.6,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.contain,

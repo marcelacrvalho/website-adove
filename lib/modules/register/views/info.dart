@@ -46,10 +46,7 @@ class RegisterInfo extends StatelessWidget {
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
-                    Visibility(
-                      visible: !HomeController.to.isMobile,
-                      child: const Divider(),
-                    ),
+                    const Divider(),
                     TextWidget(
                       text: 'Está acabando',
                       textSize: HomeController.to.isMobile

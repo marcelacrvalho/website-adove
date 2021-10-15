@@ -1,4 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/modules/home/controllers/home.dart';
 import 'package:adove/modules/welcome/controllers/welcome.dart';
 import 'package:adove/modules/welcome/widgets/container_message.dart';

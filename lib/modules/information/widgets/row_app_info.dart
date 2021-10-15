@@ -10,9 +10,9 @@ class RowAppInformationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: HomeController.to.isMobile 
+      width: HomeController.to.isMobile
           ? Get.mediaQuery.size.width
-          : Get.mediaQuery.size.width * 0.3,
+          : Get.mediaQuery.size.width * 0.4,
       height: Get.mediaQuery.size.height,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,19 +21,19 @@ class RowAppInformationWidget extends StatelessWidget {
             child: _iconText(
               Icon(
                 Icons.visibility,
-                size: HomeController.to.isMobile 
+                size: HomeController.to.isMobile
                     ? Get.mediaQuery.size.width * 0.1
                     : Get.mediaQuery.size.width * 0.03,
                 color: Colors.grey,
               ),
-              'Mais visibilidade ao negócio',
+              'Mais visibilidade ao seu negócio',
             ),
           ),
           Flexible(
             child: _iconText(
               Icon(
                 Icons.event,
-                size: HomeController.to.isMobile 
+                size: HomeController.to.isMobile
                     ? Get.mediaQuery.size.width * 0.1
                     : Get.mediaQuery.size.width * 0.03,
                 color: Colors.grey,
@@ -45,7 +45,7 @@ class RowAppInformationWidget extends StatelessWidget {
             child: _iconText(
               Icon(
                 Icons.article,
-                size: HomeController.to.isMobile 
+                size: HomeController.to.isMobile
                     ? Get.mediaQuery.size.width * 0.1
                     : Get.mediaQuery.size.width * 0.03,
                 color: Colors.grey,
@@ -60,22 +60,29 @@ class RowAppInformationWidget extends StatelessWidget {
 
   Widget _iconText(Icon icon, String text) {
     return SizedBox(
-      height: HomeController.to.isMobile 
-          ? Get.mediaQuery.size.height * 0.4
-          : Get.mediaQuery.size.height * 0.4,
-      width: HomeController.to.isMobile 
+      height: Get.mediaQuery.size.height * 0.3,
+      width: HomeController.to.isMobile
           ? Get.mediaQuery.size.width
           : Get.mediaQuery.size.height * 0.4,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: icon),
-          Center(
-            child: TextWidget(
-              text: text,
-              isTextAlignCenter: true,
-              textSize: HomeController.to.isMobile  ? Sizes.h1Mobile - 4 : Sizes.h1Site,
-              fontFamily: 'Made',
+          SizedBox(
+            height: Get.mediaQuery.size.height * 0.07,
+            child: Center(child: icon),),
+          SizedBox(
+            height: Get.mediaQuery.size.height * 0.2,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                child: TextWidget(
+                  text: text,
+                  isTextAlignCenter: true,
+                  textSize: HomeController.to.isMobile
+                      ? Sizes.h1Mobile - 4
+                      : Sizes.h1Site,
+                  fontFamily: 'Made',
+                ),
+              ),
             ),
           ),
         ],

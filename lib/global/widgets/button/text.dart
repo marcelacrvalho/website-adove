@@ -1,4 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:adove/global/utilities/sizes.dart';
+import 'package:adove/global/widgets/text/text.dart';
+import 'package:adove/modules/home/controllers/home.dart';
 import 'package:flutter/material.dart';
 
 class TextButtonWidget extends StatelessWidget {
@@ -15,16 +17,14 @@ class TextButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onTapButton,
-      child: AutoSizeText(
-        textButton,
-        maxLines: 1,
-        minFontSize: 5.0,
-        stepGranularity: 1,
-        style: const TextStyle(
-          color: Colors.grey,
-          fontSize: 15.0,
-        ),
-      ),
+      child: TextWidget(
+        text: textButton,
+        textSize: HomeController.to.isMobile 
+        ? Sizes.body1Mobile
+        : Sizes.body1Site,
+        isTextAlignCenter: true,
+        alignmentDirection: Alignment.center
+     ),
     );
   }
 }

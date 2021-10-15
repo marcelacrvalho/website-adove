@@ -17,9 +17,9 @@ class FloatingActionButtonWidget extends StatelessWidget {
     return SizedBox(
       width: Sizes.isMobile()
           ? Get.mediaQuery.size.width * 0.12
-          : Get.mediaQuery.size.width * 0.04,
+          : Get.mediaQuery.size.width * 0.05,
       height: Sizes.isMobile()
-          ? Get.mediaQuery.size.height * 0.1
+          ? Get.mediaQuery.size.height * 0.08
           : Get.mediaQuery.size.height * 0.06,
       child: FloatingActionButton.extended(
         onPressed: onTap,

@@ -1,8 +1,7 @@
 import 'package:adove/global/utilities/cities.dart';
 import 'package:adove/global/utilities/sizes.dart';
-import 'package:adove/global/widgets/text/text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:searchfield/searchfield.dart';
 
 class AutocompleteWidget extends StatelessWidget {
   final TextEditingController controllerCity;
@@ -12,15 +11,19 @@ class AutocompleteWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TypeAheadFormField<String>(
-      textFieldConfiguration: TextFieldConfiguration(
+    return SearchField(
+      suggestions: Cities.listCities,
         controller: controllerCity,
-        keyboardType: TextInputType.text,
-        style: TextStyle(
+        maxSuggestionsInViewPort: 3,
+        marginColor: Colors.white,
+        suggestionStyle: TextStyle(
+          fontSize: Sizes.isMobile() ? Sizes.body1Mobile : Sizes.body1Site,
+        ),
+        searchStyle: TextStyle(
           fontSize: Sizes.isMobile() ? Sizes.body1Mobile : Sizes.body1Site,
           color: Colors.blue,
         ),
-        decoration: InputDecoration(
+        searchInputDecoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(7.0)),
           labelStyle: TextStyle(
             fontSize: Sizes.isMobile() ? Sizes.body1Mobile : Sizes.body1Site,
@@ -32,19 +35,6 @@ class AutocompleteWidget extends StatelessWidget {
             fontSize: Sizes.isMobile() ? Sizes.body2Mobile : Sizes.body2Site,
           ),
         ),
-      ),
-      onSuggestionSelected: (String suggestionSelected) {
-        controllerCity.text = suggestionSelected;
-      },
-      itemBuilder: (context, suggestions) {
-        return ListTile(
-          title: TextWidget(
-            text: suggestions,
-            textSize: Sizes.isMobile() ? Sizes.body2Mobile : Sizes.body2Site,
-          ),
-        );
-      },
-      suggestionsCallback: (String city) => Cities.getSuggestions(city),
-    );
+      );
   }
 }

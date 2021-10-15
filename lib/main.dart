@@ -1,4 +1,3 @@
-import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/modules/home/bindings/home.dart';
 import 'package:adove/routes/app_pages.dart';
 import 'package:adove/routes/app_routes.dart';

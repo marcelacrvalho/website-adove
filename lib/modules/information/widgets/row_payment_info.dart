@@ -13,14 +13,12 @@ class RowPaymentInformationWidget extends StatelessWidget {
       height: Get.mediaQuery.size.height * 0.4,
       width: Get.mediaQuery.size.width,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Flexible(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     TextWidget(
@@ -78,21 +76,25 @@ class RowPaymentInformationWidget extends StatelessWidget {
                   ],
                 ),
                 Flexible(
-                  child: Container(
-                    color: Colors.deepPurple[400],
-                    padding: const EdgeInsets.only(right: 8.0),
-                    width: Get.mediaQuery.size.width * 0.5,
-                    height: HomeController.to.isMobile
-                        ? Get.mediaQuery.size.height * 0.2
-                        : Get.mediaQuery.size.height * 0.2,
-                    child: TextWidget(
-                      text: 'adove\nadove\nadove',
-                      fontFamily: 'Made',
-                      color: Get.theme.scaffoldBackgroundColor,
-                      textSize: HomeController.to.isMobile
-                          ? Sizes.h1Mobile
-                          : Sizes.h1Site,
-                      alignmentDirection: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        color: Colors.deepPurple[400],
+                        padding: const EdgeInsets.only(right: 8.0),
+                        width: Get.mediaQuery.size.width,
+                        height: Get.mediaQuery.size.height * 0.2,
+                        child: TextWidget(
+                          text: 'adove\nadove\nadove',
+                          fontFamily: 'Made',
+                          color: Get.theme.scaffoldBackgroundColor,
+                          textSize: HomeController.to.isMobile
+                              ? Sizes.h1Mobile
+                              : Sizes.h1Site,
+                          alignmentDirection: Alignment.centerRight,
+                        ),
+                      ),
                     ),
                   ),
                 ),

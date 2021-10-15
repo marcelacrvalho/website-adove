@@ -53,10 +53,7 @@ class RegisterView extends StatelessWidget {
                       const ImageAvatarWidget(
                         path: 'assets/images/avatar-register.jpg',
                       ),
-                      Visibility(
-                        visible: !HomeController.to.isMobile,
-                        child: const Divider(),
-                      ),
+                      const Divider(),
                       TextWidget(
                         text: 'Quem não é visto, não é lembrado',
                         textSize: HomeController.to.isMobile

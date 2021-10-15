@@ -35,12 +35,16 @@ class ContatoView extends StatelessWidget {
             Center(
               child: Container(
                 alignment: Alignment.center,
-                width: Get.mediaQuery.size.width * 0.3,
+                width: HomeController.to.isMobile
+                ? Get.mediaQuery.size.width
+                : Get.mediaQuery.size.width * 0.3,
                 height: Get.mediaQuery.size.height,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: HomeController.to.isMobile
+                        ? MainAxisAlignment.start
+                        : MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const ImageAvatarWidget(
@@ -49,9 +53,13 @@ class ContatoView extends StatelessWidget {
                       const TextWidget(
                         text: 'Olá, posso te ajudar?',
                         textSize: 15.0,
+                        alignmentDirection: Alignment.center,
+                        isTextAlignCenter: true,
                       ),
                       const TextWidget(
                         text: 'Dúvidas, reclamações, pedidos e sugestões',
+                        alignmentDirection: Alignment.center,
+                        isTextAlignCenter: true,
                       ),
                       const Divider(),
                       FormFieldWidget(

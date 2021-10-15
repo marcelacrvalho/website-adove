@@ -37,20 +37,21 @@ class RegisterStoreView extends StatelessWidget {
               const Divider(),
               Container(
                 alignment: Alignment.center,
-                width: Get.mediaQuery.size.width * 0.3,
+                width: HomeController.to.isMobile
+                ? Get.mediaQuery.size.width 
+                : Get.mediaQuery.size.width * 0.3,
                 height: Get.mediaQuery.size.height,
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: HomeController.to.isMobile
+                ? MainAxisAlignment.start
+                : MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const ImageAvatarWidget(
                       path: 'assets/images/avatar-register.jpg',
                     ),
-                    Visibility(
-                      visible: !HomeController.to.isMobile,
-                      child: const Divider(),
-                    ),
+                    const Divider(),
                     TextWidget(
                       text: 'Até que enfim',
                       textSize: HomeController.to.isMobile
