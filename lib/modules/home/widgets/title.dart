@@ -19,7 +19,7 @@ class TitleWidgetHome extends StatelessWidget {
         stepGranularity: 1,
         maxFontSize: 100.0,
         style: TextStyle(
-          color: Theme.of(context).scaffoldBackgroundColor,
+          color: Colors.grey[200],
           fontSize: 80.0,
           fontFamily: 'Made'
         ),

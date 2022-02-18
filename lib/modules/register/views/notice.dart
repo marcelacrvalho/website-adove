@@ -56,14 +56,14 @@ class NoticeView extends StatelessWidget {
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.contain,
-                    image: AssetImage('assets/images/bg-info-notice.png'),
+                    image: AssetImage('assets/images/img-rocket.png'),
                   ),
                 ),
               ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: FloatingActionButtonWidget(
-                  onTap: () => Get.offNamed(Routes.kRegisterStoreCity),
+                  onTap: () => Get.toNamed(Routes.kRegisterStoreCity),
                 ),
               ),
             ],

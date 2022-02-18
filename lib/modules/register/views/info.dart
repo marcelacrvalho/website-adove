@@ -139,6 +139,7 @@ class RegisterInfo extends StatelessWidget {
             return DropdownMenuItem<String>(
               child: TextWidget(
                 text: item,
+                alignmentDirection: Alignment.centerLeft,
                 textSize: HomeController.to.isMobile
                     ? Sizes.body1Mobile
                     : Sizes.body1Site,
@@ -163,6 +164,7 @@ class RegisterInfo extends StatelessWidget {
             return DropdownMenuItem<String>(
               child: TextWidget(
                 text: item,
+                alignmentDirection: Alignment.centerLeft,
                 textSize: HomeController.to.isMobile
                     ? Sizes.body1Mobile
                     : Sizes.body1Site,
@@ -187,6 +189,7 @@ class RegisterInfo extends StatelessWidget {
             return DropdownMenuItem<String>(
               child: TextWidget(
                 text: item,
+                alignmentDirection: Alignment.centerLeft,
                 textSize: HomeController.to.isMobile
                     ? Sizes.body1Mobile
                     : Sizes.body1Site,
@@ -211,6 +214,7 @@ class RegisterInfo extends StatelessWidget {
             return DropdownMenuItem<String>(
               child: TextWidget(
                 text: item,
+                alignmentDirection: Alignment.centerLeft,
                 textSize: HomeController.to.isMobile
                     ? Sizes.body1Mobile
                     : Sizes.body1Site,

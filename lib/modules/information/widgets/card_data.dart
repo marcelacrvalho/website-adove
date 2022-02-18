@@ -1,6 +1,7 @@
 import 'package:adove/global/utilities/sizes.dart';
 import 'package:adove/modules/home/controllers/home.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CardDataWidget extends StatelessWidget {
   final String title;
@@ -14,37 +15,39 @@ class CardDataWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Flexible(
-          child: Text(
-            title,
-            maxLines: 2,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: HomeController.to.isMobile
-                  ? Sizes.h1Mobile
-                  : Sizes.h1Site,
-              fontFamily: 'Made',
+    return SizedBox(
+      height: Get.mediaQuery.size.height * 0.3,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Flexible(
+            child: Text(
+              title,
+              maxLines: 3,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: HomeController.to.isMobile
+                    ? Sizes.h1Mobile
+                    : Sizes.h1Site,
+                fontFamily: 'Made',
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
-        ),
-        Flexible(
-          child: Text(
-            subtitle,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: Sizes.isMobile() 
-                  ? Sizes.body1Mobile
-                  : Sizes.body1Site,
+          Flexible(
+            child: Text(
+              subtitle,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: Sizes.isMobile()
+                    ? Sizes.body1Mobile
+                    : Sizes.body1Site,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

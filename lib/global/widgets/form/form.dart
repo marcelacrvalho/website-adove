@@ -5,13 +5,11 @@ class FormFieldWidget extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final bool maxLines;
-  final double aspectRatio;
 
   const FormFieldWidget({
     Key? key,
     required this.controller,
     required this.labelText,
-    this.aspectRatio = 5/5,
     this.obscureText = false,
     this.maxLines = false,
   }) : super(key: key);

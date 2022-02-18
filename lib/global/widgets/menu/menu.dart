@@ -10,46 +10,24 @@ class MenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-          width: Get.mediaQuery.size.width,
-          height:Get.mediaQuery.size.height * 0.12,
-          padding: const EdgeInsets.all(20.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            borderRadius: BorderRadius.circular(40.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.15),
-                offset: const Offset(0, -2),
-                blurRadius: 30.0,
-              ),
-            ],
+      width: double.infinity,
+      height: Sizes.isMobile()
+          ? Get.mediaQuery.size.height * 0.13
+          : Get.mediaQuery.size.height * 0.12,
+      padding: const EdgeInsets.all(20.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        borderRadius: BorderRadius.circular(40.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.15),
+            offset: const Offset(0, -2),
+            blurRadius: 30.0,
           ),
-          child: !Sizes.isMobile()
+        ],
+      ),
+      child: !Sizes.isMobile()
           ? Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButtonWidget(
-                onTapButton: () => Get.toNamed(Routes.kHome),
-                textButton: 'INÍCIO',
-              ),
-              TextButtonWidget(
-                onTapButton: () => Get.toNamed(Routes.kAbout),
-                textButton: 'INFORMAÇÕES',
-              ),
-              TextButtonWidget(
-                onTapButton: () => Get.toNamed(Routes.kRegister),
-                textButton: 'CADASTRAR',
-              ),
-              TextButtonWidget(
-                onTapButton: () => Get.toNamed(Routes.kContact),
-                textButton: 'CONTATO',
-              ),
-            ],
-          )
-          : SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButtonWidget(
@@ -69,8 +47,29 @@ class MenuWidget extends StatelessWidget {
                   textButton: 'CONTATO',
                 ),
               ],
+            )
+          : ListView(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              children: [
+                TextButtonWidget(
+                  onTapButton: () => Get.toNamed(Routes.kHome),
+                  textButton: 'INÍCIO',
+                ),
+                TextButtonWidget(
+                  onTapButton: () => Get.toNamed(Routes.kAbout),
+                  textButton: 'INFORMAÇÕES',
+                ),
+                TextButtonWidget(
+                  onTapButton: () => Get.toNamed(Routes.kRegister),
+                  textButton: 'CADASTRAR',
+                ),
+                TextButtonWidget(
+                  onTapButton: () => Get.toNamed(Routes.kContact),
+                  textButton: 'CONTATO',
+                ),
+              ],
             ),
-          ),
-        );
+    );
   }
 }
