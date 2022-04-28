@@ -3,11 +3,15 @@ import 'package:adove/routes/app_pages.dart';
 import 'package:adove/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 void main() {
   runApp(
-    GetMaterialApp(
+    RobotDetector(
+      debug: true,
+      child: GetMaterialApp(
         title: 'Adove',
+        navigatorObservers: [seoRouteObserver],
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.kHome,
         getPages: WebPages.routes,
@@ -26,6 +30,7 @@ void main() {
             buttonColor: Colors.blue,
           ),
         ),
+      ),
     ),
   );
 }

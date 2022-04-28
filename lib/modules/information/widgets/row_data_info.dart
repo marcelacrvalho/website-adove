@@ -19,7 +19,7 @@ class RowDataInfo extends StatelessWidget {
         const Expanded(
           child: CardDataWidget(
             title: 'O 2º país do mundo',
-            subtitle: 'que mais pesquisa sobre beleza, bem estar e estética, na web',
+            subtitle: 'que mais pesquisa sobre beleza, bem-estar e estética, na web',
           ),
         ),
         const Expanded(

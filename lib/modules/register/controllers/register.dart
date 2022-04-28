@@ -14,9 +14,9 @@ class RegisterController extends GetxController {
 
   List<String> categoryItems = [
     'Estética',
+    'Psicologia',
     'Odontologia',
     'Salão de Beleza',
-    'Barbearia',
     'Manicure e Pedicure',
     'Depilação',
     'Maquiagem',
@@ -99,13 +99,11 @@ class RegisterController extends GetxController {
         },
       );
       await _client.mutate(options);
-      _lauchLink();
-    } catch (e) {
-      
-    }
+      _launchLink();
+    } catch (e) {}
   }
 
-  Future _lauchLink() async {
+  Future _launchLink() async {
     if (await canLaunch(urlPaymentLink)) {
       await launch(urlPaymentLink, forceWebView: false, forceSafariVC: false);
     }

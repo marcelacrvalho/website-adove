@@ -3,6 +3,7 @@ import 'package:adove/global/widgets/text/text.dart';
 import 'package:adove/modules/home/controllers/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
 
 class RowAppInformationWidget extends StatelessWidget {
   const RowAppInformationWidget({Key? key}) : super(key: key);
@@ -59,13 +60,15 @@ class RowAppInformationWidget extends StatelessWidget {
       children: [
         Center(child: icon),
         Center(
-          child: TextWidget(
-            text: text,
-            isTextAlignCenter: true,
-            textSize: HomeController.to.isMobile
-                ? Sizes.h1Mobile - 4
-                : Sizes.h1Site - 2,
-            fontFamily: 'Made',
+          child: TextRenderer(
+            child: TextWidget(
+              text: text,
+              isTextAlignCenter: true,
+              textSize: HomeController.to.isMobile
+                  ? Sizes.h1Mobile - 4
+                  : Sizes.h1Site - 2,
+              fontFamily: 'Made',
+            ),
           ),
         ),
       ],

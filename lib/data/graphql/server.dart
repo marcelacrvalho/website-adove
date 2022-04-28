@@ -2,7 +2,7 @@ import 'package:graphql/client.dart';
 
 GraphQLClient getGraphQLClient() {
   final Link _link = HttpLink(
-    'https://api-adove.fedratecnologia.com.br',
+    'https://adove-server.fedratecnologia.com.br',
   );
 
   return GraphQLClient(

@@ -75,7 +75,7 @@ class ColumnPaymentAndAddress extends StatelessWidget {
       color: Colors.deepPurple[300],
       padding: const EdgeInsets.all(16.0),
       child: TextWidget(
-        text: 'R\$ 27 mensais',
+        text: 'R\$ 25 mensais',
         fontFamily: 'Made',
         textSize: Sizes.isMobile() ? Sizes.h1Mobile - 2 : Sizes.h1Site - 2,
         color: Colors.white,

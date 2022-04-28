@@ -41,7 +41,7 @@ class WelcomeView extends StatelessWidget {
                     Icons.person,
                     size: HomeController.to.isMobile 
                     ? Get.mediaQuery.size.width * 0.15
-                    : Get.mediaQuery.size.width * 0.04,
+                    : Get.mediaQuery.size.width * 0.02,
                     color: Colors.white,
                   ),
                 ),
